@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="WEB-INF/templates/defaultTemplate.xhtml">
+
+		<!-- Header -->
+		<ui:define name="header">
+			<h:outputText styleClass="pageName" value="Модуль управління: додати працівника"></h:outputText>
+
+			<h:form>
+				<h:commandButton value="Повернутися" action="administrator"
+					styleClass="pageMenuButtonLong" />
+			</h:form>
+
+
+		</ui:define>
+
+
+		<!-- Content -->
+		<ui:define name="content">
+
+			<!-- Content add employee -->
+
+			<h:form styleClass="form">
+				<h:panelGrid columns="2">
+					<h:outputText value="Ім'я"></h:outputText>
+					<h:inputText value="#{adminAddFlight.fcode}" required="true" requiredMessage="Заповніть форму" />
+					
+					<h:outputText value="Пароль"></h:outputText>
+					<h:inputText value="#{adminAddFlight.avSeats}" required="true" requiredMessage="Заповніть форму" />
+
+					<h:outputText value="Група"></h:outputText>
+					<h:selectOneMenu value="#{secOfAdd.role}">
+						<f:selectItem itemLabel="Контент-менеджер" itemValue="1" />
+						<f:selectItem itemLabel="Менеджер" itemValue="2" />
+						<f:selectItem itemLabel="Касир" itemValue="3" />
+						<f:convertNumber />
+					</h:selectOneMenu>
+
+				</h:panelGrid>
+				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Додати" action="#{adminAddFlight.addNewFlight}" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

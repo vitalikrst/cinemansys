@@ -1,0 +1,108 @@
+@CHARSET "UTF-8";
+
+/* General */
+
+#header {
+	background: #33CC33;
+	height: 80px;
+	border: 1px solid transparent;
+}
+
+#footer {
+	background: #33CC33;
+	height: 80px;
+	border: 1px solid transparent;
+}
+
+.pageName {
+	color: #FFFFFF;
+	margin-left: 10px;
+	margin-top: 20px;
+	font-size: 60px;
+	font-family:"Georgia";
+	font-style:italic;
+
+}
+
+/* Text */
+
+h3 {
+	font-family: "Tahoma";
+	color: #666666;
+	margin:10px;
+}
+
+h4 {
+	font-family: "Tahoma";
+	color: #666666;
+	margin:10px;
+}
+
+/* Menu buttons */
+
+.pageMenuButton {
+	margin-left: 10px;
+	margin-top: 5px;
+	background-color: #СССССС;
+	cursor: pointer;
+	width: 60px;
+	height: 20px;
+	border: none;
+	font-family: "Tahoma";
+}
+
+.pageMenuButton:hover {
+	background:#FFFFFF;
+}
+
+.pageMenuButton:active {
+	background:#CCCCCC;
+}
+
+
+.pageMenuButtonLong {
+	margin-left: 10px;
+	margin-top: 5px;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	width: 145px;
+	height: 20px;
+	border: none;
+	font-family: "Tahoma";
+}
+
+.pageMenuButtonLong:hover {
+	background:#00FF33;
+}
+
+.pageMenuButtonLong:active {
+	background:#CCCCCC;
+}
+
+/* Page buttons */
+
+.pageButton {
+	margin-top: 20px;
+	background-color: #33CC33;
+	cursor: pointer;
+	width: 120px;
+	height: 50px;
+	border: none;
+	color:#FFFFFF;
+	font-family: "Tahoma";
+}
+
+.pageButton:hover {
+	background:#999999;
+}
+
+.pageMenuButton:active {
+	background:#CCCCCC;
+}
+
+/* Forms */
+
+.form {
+	font-family: "Tahoma";
+	margin:10px;
+}

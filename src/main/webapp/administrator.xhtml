@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="WEB-INF/templates/defaultTemplate.xhtml">
+
+		<!-- Header -->
+		<ui:define name="header">
+			<h:outputText styleClass="pageName" value="Модуль управління"></h:outputText>
+
+			<h:form>
+				<h:commandButton value="Вихід" action="index"
+					styleClass="pageMenuButton" />
+				<h:commandButton value="Додати нову залу" action="administratorAddHall"
+					styleClass="pageMenuButtonLong" />
+				<h:commandButton value="Додати працівника" action="administratorAddEmployee"
+					styleClass="pageMenuButtonLong" />
+			</h:form>
+
+
+		</ui:define>
+
+
+		<!-- Content -->
+		<ui:define name="content">
+
+			<!-- Content halls -->
+
+			<h3>Доступні зали:</h3>
+
+			<h:form styleClass="form">
+
+				<p:dataTable emptyMessage="Записи відсутні" var="hall" value="#{tableBean.carsSmall}" id="hallList"
+					editable="true" style="width:400px;">
+
+					<p:column headerText="Назва">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{hall.name}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{hall.name}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column>
+						<p:rowEditor />
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+
+			<!-- Content accounts -->
+
+
+			<h3>Облікові записи:</h3>
+
+			<h:form styleClass="form">
+
+				<p:dataTable emptyMessage="Записи відсутні" var="employee" value="#{tableBean.carsSmall}" id="employeeList"
+					editable="true" style="width:800px;">
+
+					<p:column headerText="Ім'я">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{employee.name}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{employee.name}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Група">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{employee.group}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{employee.group}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Пароль">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{employee.password}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{employee.password}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Статус">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{employee.active}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{employee.active}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column>
+						<p:rowEditor />
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+
+			<!-- Content options -->
+
+			<h4>Назва кінотеатру:</h4>
+			<h:form styleClass="form">
+
+				<h:outputText value="Кінотеатр А" />
+				<h:commandButton value="Змінити" action="administrator"
+					styleClass="pageButton" />
+			</h:form>
+
+			<h4>Відміна бронювання (хв.):</h4>
+			<h:form styleClass="form">
+
+				<h:outputText value="30" />
+				<h:commandButton value="Змінити" action="administrator"
+					styleClass="pageButton" />
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

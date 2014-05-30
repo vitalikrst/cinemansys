@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:outputScript name="js/ualocale.js" />
+<h:body>
+	<ui:composition template="WEB-INF/templates/userTemplate.xhtml">
+	
+
+
+		<!-- Header -->
+		<ui:define name="header">
+			<h:outputText styleClass="pageName" value="Кінотеатр A"></h:outputText>
+		</ui:define>
+
+
+		<!-- Content -->
+		<ui:define name="content">
+
+			<h3>Бронювання квитків:</h3>
+
+			<h:form styleClass="form">
+				<h:outputText value="Оберіть дату" style="margin-right:20px;" />
+				<p:calendar id="mdate" locale="ua" value="#{home.startDate}" pattern="dd.MM.yyyy"
+					 >
+					<f:convertDateTime pattern="dd.MM.yyyy" />
+				</p:calendar>
+				
+				<h:outputText value="Оберіть фільм" style="margin-right:20px; margin-left:20px;"></h:outputText>
+				<p:autoComplete id="autoComplete" value="#{home.desCity}"
+					minQueryLength="3" completeMethod="#{home.complete}" />
+
+				<h:commandButton style="margin-left:20px;" styleClass="pageButton" value="Знайти сеанси" action="index" />
+			</h:form>
+			
+			<h:form styleClass="form">
+
+				<p:dataTable emptyMessage="Сеансів не знайдено" var="session" value="#{tableBean.carsSmall}" id="sessionList" style="width:400px;">
+
+					<p:column headerText="Назва">
+							<f:facet name="output">
+								<h:outputText value="#{session.name}" />
+							</f:facet>
+					</p:column>
+					<p:column headerText="Час">
+							<f:facet name="output">
+								<h:outputText value="#{session.name}" />
+							</f:facet>
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+
+
+		</ui:define>
+
+
+		<!-- Footer -->
+		<ui:define name="footer">
+
+			<!-- Login -->
+			<h:form styleClass="form">
+				<h:outputText value="Ім'я" style="color:#FFFFFF;" />
+				<h:inputText value="#{loginBean.login}" style="margin-left:5px;"
+					required="true" requiredMessage="Заповніть форму" maxlenght="10"
+					size="7" />
+				<h:outputText value="Пароль"
+					style="margin-left:10px; color:#FFFFFF;" maxlenght="10" />
+				<h:inputSecret value="#{loginBean.password}"
+					style="margin-left:5px;" requiredMessage="Заповніть форму" size="7" />
+				<h:commandButton value="Вхід для персоналу"
+					action="#{loginBean.logIn}" styleClass="pageMenuButtonLong" />
+			</h:form>
+			<h4
+				style="color: #FFFFFF; margin: 10px; font-family: tahoma; font-weight: normal;">Контактна
+				інформація: +38 044 123 45 67 &nbsp; &nbsp; &nbsp; e-mail:
+				movie@cinema.com</h4>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
