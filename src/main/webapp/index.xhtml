@@ -15,39 +15,39 @@
 
 		<!-- Header -->
 		<ui:define name="header">
-			<h:outputText styleClass="pageName" value="Кінотеатр A"></h:outputText>
+			<h:outputText styleClass="pageName" value="Cinema A"></h:outputText>
 		</ui:define>
 
 
 		<!-- Content -->
 		<ui:define name="content">
 
-			<h3>Бронювання квитків:</h3>
+			<h3>Booking:</h3>
 
 			<h:form styleClass="form">
-				<h:outputText value="Оберіть дату" style="margin-right:20px;" />
-				<p:calendar id="mdate" locale="ua" value="#{home.startDate}" pattern="dd.MM.yyyy"
+				<h:outputText value="Date" style="margin-right:20px;" />
+				<p:calendar id="mdate" locale="ua" value="#{homepage.movieDate}" pattern="dd.MM.yyyy"
 					 >
 					<f:convertDateTime pattern="dd.MM.yyyy" />
 				</p:calendar>
 				
-				<h:outputText value="Оберіть фільм" style="margin-right:20px; margin-left:20px;"></h:outputText>
-				<p:autoComplete id="autoComplete" value="#{home.desCity}"
-					minQueryLength="3" completeMethod="#{home.complete}" />
+				<h:outputText value="Movie" style="margin-right:20px; margin-left:20px;"></h:outputText>
+				<p:autoComplete id="autoComplete" value="#{homepage.movieName}"
+					minQueryLength="3" completeMethod="#{homepage.complete}" />
 
-				<h:commandButton style="margin-left:20px;" styleClass="pageButton" value="Знайти сеанси" action="index" />
+				<h:commandButton style="margin-left:20px;" styleClass="pageButton" value="Find sessions" action="index" />
 			</h:form>
 			
 			<h:form styleClass="form">
 
-				<p:dataTable emptyMessage="Сеансів не знайдено" var="session" value="#{tableBean.carsSmall}" id="sessionList" style="width:400px;">
+				<p:dataTable emptyMessage="No sessions" var="session" value="#{homepage.sessionList}" id="sessionList" style="width:400px;">
 
-					<p:column headerText="Назва">
+					<p:column headerText="Name">
 							<f:facet name="output">
 								<h:outputText value="#{session.name}" />
 							</f:facet>
 					</p:column>
-					<p:column headerText="Час">
+					<p:column headerText="Time">
 							<f:facet name="output">
 								<h:outputText value="#{session.name}" />
 							</f:facet>
@@ -65,20 +65,19 @@
 
 			<!-- Login -->
 			<h:form styleClass="form">
-				<h:outputText value="Ім'я" style="color:#FFFFFF;" />
-				<h:inputText value="#{loginBean.login}" style="margin-left:5px;"
+				<h:outputText value="Login" style="color:#FFFFFF;" />
+				<h:inputText value="#{authorization.login}" style="margin-left:5px;"
 					required="true" requiredMessage="Заповніть форму" maxlenght="10"
 					size="7" />
-				<h:outputText value="Пароль"
+				<h:outputText value="Password"
 					style="margin-left:10px; color:#FFFFFF;" maxlenght="10" />
-				<h:inputSecret value="#{loginBean.password}"
-					style="margin-left:5px;" requiredMessage="Заповніть форму" size="7" />
-				<h:commandButton value="Вхід для персоналу"
-					action="#{loginBean.logIn}" styleClass="pageMenuButtonLong" />
+				<h:inputSecret value="#{authorization.password}"
+					style="margin-left:5px;" requiredMessage="Required" size="7" />
+				<h:commandButton value="Staff login"
+					action="#{authorization.logIn}" styleClass="pageMenuButtonLong" />
 			</h:form>
 			<h4
-				style="color: #FFFFFF; margin: 10px; font-family: tahoma; font-weight: normal;">Контактна
-				інформація: +38 044 123 45 67 &nbsp; &nbsp; &nbsp; e-mail:
+				style="color: #FFFFFF; margin: 10px; font-family: tahoma; font-weight: normal;">Call us: 1(777)555-1234 &nbsp; &nbsp; &nbsp; e-mail:
 				movie@cinema.com</h4>
 
 		</ui:define>

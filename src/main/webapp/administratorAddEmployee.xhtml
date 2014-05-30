@@ -11,10 +11,10 @@
 
 		<!-- Header -->
 		<ui:define name="header">
-			<h:outputText styleClass="pageName" value="Модуль управління: додати працівника"></h:outputText>
+			<h:outputText styleClass="pageName" value="Control panel: add employee"></h:outputText>
 
 			<h:form>
-				<h:commandButton value="Повернутися" action="administrator"
+				<h:commandButton value="Back" action="administrator"
 					styleClass="pageMenuButtonLong" />
 			</h:form>
 
@@ -29,22 +29,22 @@
 
 			<h:form styleClass="form">
 				<h:panelGrid columns="2">
-					<h:outputText value="Ім'я"></h:outputText>
-					<h:inputText value="#{adminAddFlight.fcode}" required="true" requiredMessage="Заповніть форму" />
+					<h:outputText value="Name"></h:outputText>
+					<h:inputText value="#{adminAddEmployee.name}" required="true" requiredMessage="Required" />
 					
-					<h:outputText value="Пароль"></h:outputText>
-					<h:inputText value="#{adminAddFlight.avSeats}" required="true" requiredMessage="Заповніть форму" />
+					<h:outputText value="Password"></h:outputText>
+					<h:inputText value="#{adminAddEmployee.password}" required="true" requiredMessage="Required" />
 
-					<h:outputText value="Група"></h:outputText>
-					<h:selectOneMenu value="#{secOfAdd.role}">
-						<f:selectItem itemLabel="Контент-менеджер" itemValue="1" />
-						<f:selectItem itemLabel="Менеджер" itemValue="2" />
-						<f:selectItem itemLabel="Касир" itemValue="3" />
+					<h:outputText value="Group"></h:outputText>
+					<h:selectOneMenu value="#{adminAddEmployee.group}">
+						<f:selectItem itemLabel="Content-manager" itemValue="1" />
+						<f:selectItem itemLabel="Manager" itemValue="2" />
+						<f:selectItem itemLabel="Cashier" itemValue="3" />
 						<f:convertNumber />
 					</h:selectOneMenu>
 
 				</h:panelGrid>
-				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Додати" action="#{adminAddFlight.addNewFlight}" />
+				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Add" action="#{adminAddEmployee.addEmployee}" />
 			</h:form>
 		</ui:define>
 	</ui:composition>

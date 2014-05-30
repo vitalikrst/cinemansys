@@ -12,10 +12,10 @@
 		<!-- Header -->
 		<ui:define name="header">
 			<h:outputText styleClass="pageName"
-				value="Модуль управління: додати нову залу"></h:outputText>
+				value="Conrol panel: add new hall"></h:outputText>
 
 			<h:form>
-				<h:commandButton value="Повернутися" action="administrator"
+				<h:commandButton value="Back" action="administrator"
 					styleClass="pageMenuButtonLong" />
 			</h:form>
 
@@ -30,22 +30,22 @@
 
 			<h:form styleClass="form">
 				<h:panelGrid columns="2">
-					<h:outputText value="Назва"></h:outputText>
-					<h:inputText value="#{adminAddFlight.fcode}" required="true" requiredMessage="Заповніть форму" />
+					<h:outputText value="Name"></h:outputText>
+					<h:inputText value="#{adminAddHall.name}" required="true" requiredMessage="Required" />
 
-					<h:outputText value="Кількість рядів"></h:outputText>
-					<h:inputText value="#{adminAddFlight.avSeats}" required="true" requiredMessage="Заповніть форму">
+					<h:outputText value="Rows"></h:outputText>
+					<h:inputText value="#{adminAddFlight.avSeats}" required="true" requiredMessage="Required">
 						<f:convertNumber />
 						<f:validateLongRange minimum="5" maximum="30" />
 					</h:inputText>
 				</h:panelGrid>
 				
 				
-				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Далі" action="#{adminAddFlight.addNewFlight}" />
+				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Next" action="#{adminAddHall.addNewHall}" />
 			</h:form>
 			<h:form styleClass="form">
 				
-				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Додати" action="#{adminAddFlight.addNewFlight}" />
+				<h:commandButton styleClass="pageButton" style="margin:0px;" value="Add" action="#{adminAddHall.addNewHall}" />
 			</h:form>
 		</ui:define>
 	</ui:composition>

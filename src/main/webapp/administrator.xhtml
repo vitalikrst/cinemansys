@@ -11,14 +11,14 @@
 
 		<!-- Header -->
 		<ui:define name="header">
-			<h:outputText styleClass="pageName" value="Модуль управління"></h:outputText>
+			<h:outputText styleClass="pageName" value="Control panel"></h:outputText>
 
 			<h:form>
-				<h:commandButton value="Вихід" action="index"
+				<h:commandButton value="Exit" action="index"
 					styleClass="pageMenuButton" />
-				<h:commandButton value="Додати нову залу" action="administratorAddHall"
+				<h:commandButton value="Add new hall" action="administratorAddHall"
 					styleClass="pageMenuButtonLong" />
-				<h:commandButton value="Додати працівника" action="administratorAddEmployee"
+				<h:commandButton value="Add employee" action="administratorAddEmployee"
 					styleClass="pageMenuButtonLong" />
 			</h:form>
 
@@ -31,14 +31,14 @@
 
 			<!-- Content halls -->
 
-			<h3>Доступні зали:</h3>
+			<h3>Available halls:</h3>
 
 			<h:form styleClass="form">
 
-				<p:dataTable emptyMessage="Записи відсутні" var="hall" value="#{tableBean.carsSmall}" id="hallList"
+				<p:dataTable emptyMessage="No data" var="hall" value="#{administrator.hallsList}" id="hallList"
 					editable="true" style="width:400px;">
 
-					<p:column headerText="Назва">
+					<p:column headerText="Name">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{hall.name}" />
@@ -60,14 +60,14 @@
 			<!-- Content accounts -->
 
 
-			<h3>Облікові записи:</h3>
+			<h3>User accounts:</h3>
 
 			<h:form styleClass="form">
 
-				<p:dataTable emptyMessage="Записи відсутні" var="employee" value="#{tableBean.carsSmall}" id="employeeList"
+				<p:dataTable emptyMessage="No data" var="employee" value="#{administrator.userList}" id="employeeList"
 					editable="true" style="width:800px;">
 
-					<p:column headerText="Ім'я">
+					<p:column headerText="Name">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{employee.name}" />
@@ -78,7 +78,7 @@
 						</p:cellEditor>
 					</p:column>
 					
-					<p:column headerText="Група">
+					<p:column headerText="Group">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{employee.group}" />
@@ -89,7 +89,7 @@
 						</p:cellEditor>
 					</p:column>
 					
-					<p:column headerText="Пароль">
+					<p:column headerText="Password">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{employee.password}" />
@@ -100,7 +100,7 @@
 						</p:cellEditor>
 					</p:column>
 					
-					<p:column headerText="Статус">
+					<p:column headerText="Status">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{employee.active}" />
@@ -121,19 +121,19 @@
 
 			<!-- Content options -->
 
-			<h4>Назва кінотеатру:</h4>
+			<h4>Cinema name:</h4>
 			<h:form styleClass="form">
 
-				<h:outputText value="Кінотеатр А" />
-				<h:commandButton value="Змінити" action="administrator"
+				<h:outputText value="Cinema A" />
+				<h:commandButton value="Change" action="administrator"
 					styleClass="pageButton" />
 			</h:form>
 
-			<h4>Відміна бронювання (хв.):</h4>
+			<h4>Booking timeout:</h4>
 			<h:form styleClass="form">
 
 				<h:outputText value="30" />
-				<h:commandButton value="Змінити" action="administrator"
+				<h:commandButton value="Change" action="administrator"
 					styleClass="pageButton" />
 			</h:form>
 
