@@ -1,5 +1,6 @@
 Cinema Management System
 ==========
 
-J2EE web application <br>
+Web application <br> 
+(Hibernate + MySQL(external), Spring(core, web, security, orm, jdbc), JSF2 + Primefaces) <br> 
 Work in progress
